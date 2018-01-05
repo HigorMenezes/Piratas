@@ -43,14 +43,14 @@ public class GameController : MonoBehaviour {
 			aux = Instantiate (redPirate, redFather.transform);
 			aux.transform.localPosition = new Vector3( board.RedTeam [1].x, board.RedTeam [1].y, 0);
 			aux = Instantiate (redTreasure, redFather.transform);
-			aux.transform.localPosition = new Vector3( board.RedTeam [2].x, board.RedTeam [2].y, 0);
+			aux.transform.localPosition = new Vector3( board.RedTeam [2].x - 0.5f, board.RedTeam [2].y, 0);
 
 			aux = Instantiate (bluePirate, blueFather.transform);
 			aux.transform.localPosition = new Vector3( board.BlueTeam [0].x, board.BlueTeam [0].y, 0);
 			aux = Instantiate (bluePirate, blueFather.transform);
 			aux.transform.localPosition = new Vector3( board.BlueTeam [1].x, board.BlueTeam [1].y, 0);
 			aux = Instantiate (blueTreasure, blueFather.transform);
-			aux.transform.localPosition = new Vector3( board.BlueTeam [2].x, board.BlueTeam [2].y, 0);
+			aux.transform.localPosition = new Vector3( board.BlueTeam [2].x + 0.5f, board.BlueTeam [2].y, 0);
 		}
 	}
 
