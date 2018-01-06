@@ -6,10 +6,10 @@ public class MakeMovement : MonoBehaviour {
 
 	private static Animator animator;
 
-	private bool walk = false;
+	private bool walk;
 
-	private static float time = 0f;
-	private float maxTime = 2f;
+	private static float time;
+	private float maxTime;
 
 	private static GameObject moveFrom;
 	private static GameObject moveTo;
@@ -24,6 +24,9 @@ public class MakeMovement : MonoBehaviour {
 	private static bool flag;
 
 	void Start () {
+		maxTime = 2f;
+		walk = false;
+		time = 0f;
 		moveFrom = null;
 		moveTo = null;
 	}

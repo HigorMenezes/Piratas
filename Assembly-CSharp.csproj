@@ -47,20 +47,43 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\Board.cs" />
+     <Compile Include="Assets\Script\CameraInMenu.cs" />
      <Compile Include="Assets\Script\CompController.cs" />
-     <Compile Include="Assets\Script\DebugMiniMax.cs" />
-     <Compile Include="Assets\Script\DebugTree.cs" />
+     <Compile Include="Assets\Script\Debug\DebugMiniMax.cs" />
+     <Compile Include="Assets\Script\Debug\DebugTree.cs" />
+     <Compile Include="Assets\Script\Debug\MiniMax2.cs" />
+     <Compile Include="Assets\Script\FunctionsButton.cs" />
      <Compile Include="Assets\Script\GameController.cs" />
+     <Compile Include="Assets\Script\MainMenu.cs" />
      <Compile Include="Assets\Script\MakeMovement.cs" />
+     <Compile Include="Assets\Script\MenuWin.cs" />
      <Compile Include="Assets\Script\MiniMax.cs" />
-     <Compile Include="Assets\Script\MiniMax2.cs" />
-     <Compile Include="Assets\Script\MiniMaxTest.cs" />
      <Compile Include="Assets\Script\Movement.cs" />
      <Compile Include="Assets\Script\MovementCalculate.cs" />
      <Compile Include="Assets\Script\Nodo.cs" />
      <Compile Include="Assets\Script\PlayerController.cs" />
      <Compile Include="Assets\Script\SeaController.cs" />
      <Compile Include="Assets\Script\TreeGenerate.cs" />
+     <None Include="Assets\UI\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+     <None Include="Assets\UI\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+     <None Include="Assets\UI\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
+     <None Include="Assets\UI\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+     <None Include="Assets\UI\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+     <None Include="Assets\UI\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+     <None Include="Assets\UI\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+     <None Include="Assets\UI\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+     <None Include="Assets\UI\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\UI\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+     <None Include="Assets\UI\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+     <None Include="Assets\UI\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald Bold - OFL.txt" />
+     <None Include="Assets\UI\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\UI\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+     <None Include="Assets\UI\TextMesh Pro\Examples &amp; Extras\Fonts\NotoSans - License.txt" />
+     <None Include="Assets\UI\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+     <None Include="Assets\UI\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+     <None Include="Assets\UI\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\UI\TextMesh Pro\Examples &amp; Extras\Fonts\LiberationSans - OFL.txt" />
+     <None Include="Assets\UI\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -81,6 +104,12 @@
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="TextMeshPro-5.6-1.0.56-Editor">
+ <HintPath>C:/Users/Higor/Desktop/Programming/Unity/Projects/Piratas/Assets/UI/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-5.6-1.0.56-Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="TextMeshPro-5.6-1.0.56-Runtime">
+ <HintPath>C:/Users/Higor/Desktop/Programming/Unity/Projects/Piratas/Assets/UI/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-5.6-1.0.56-Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

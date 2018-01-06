@@ -4,21 +4,38 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	private bool flag = true;
+	private bool flag;
 
 	public GameObject move;
 	public GameObject attack;
+	public GameObject win;
 
 	private RaycastHit hit;
 
-	private List<GameObject> moveObjects = new List<GameObject>();
-	private List<Movement> movements = new List<Movement>();
+	private List<GameObject> moveObjects;
+	private List<Movement> movements;
 
 	void Start () {
+		flag = true;
+		moveObjects = new List<GameObject>();
+		movements = new List<Movement>();
 	}
 
 	void Update () {
 		if (GameController.turn.ToString().Equals (this.tag)) {
+
+			if (this.tag.Equals ("BlueTeam")) {
+				if (GameController.board.BlueTeam [0].x == -10f &&
+				    GameController.board.BlueTeam [1].x == -10f) {
+					GameController.changeTurn ();
+				}
+			} else {
+				if (GameController.board.RedTeam [0].x == -10f &&
+					GameController.board.RedTeam [1].x == -10f) {
+					GameController.changeTurn ();
+				}
+			}
+
 			if (Input.GetKeyDown (KeyCode.Mouse0) && flag) {
 				flag = false;
 				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -52,11 +69,16 @@ public class PlayerController : MonoBehaviour {
 				Vector3 to = new Vector3 (movement.To.x, movement.To.y, -aux.transform.position.y);
 				aux.transform.localPosition = to;
 				moveObjects.Add (aux);
-			} else {
+			} else if (movement.MoveType.Equals (Movement.Move.Attack)) {
 				aux = Instantiate (attack, this.transform);
 				Vector3 to = new Vector3 (movement.To.x, movement.To.y, -aux.transform.position.y);
 				aux.transform.localPosition = to;
-				moveObjects.Add(aux);
+				moveObjects.Add (aux);
+			} else {
+				aux = Instantiate (win, this.transform);
+				Vector3 to = new Vector3 (movement.To.x, movement.To.y, -aux.transform.position.y);
+				aux.transform.localPosition = to;
+				moveObjects.Add (aux);
 			}
 		}
 

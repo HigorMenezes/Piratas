@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
@@ -16,12 +17,13 @@ public class GameController : MonoBehaviour {
 		Win
 	};
 
-	private static Turn lastTurn;
+	public static Turn lastTurn;
 
 	public static Turn turn;
-	public static Board board = new Board();
+	public static Board board;
 
 	void Start(){
+		board = new Board ();
 		if (Random.Range (0, 2) == 0) {
 			turn = Turn.RedTeam;
 		} else {
@@ -34,6 +36,26 @@ public class GameController : MonoBehaviour {
 	private void prepareBoard(){
 		GameObject redFather = GameObject.FindGameObjectWithTag("RedTeam");
 		GameObject blueFather = GameObject.FindGameObjectWithTag("BlueTeam");
+
+		if (MainMenu.dpBlue.Equals ("Player")) {
+			//Debug.Log ("BlueTeam -> Player");
+			blueFather.GetComponent<PlayerController> ().enabled = true;
+			blueFather.GetComponent<CompController> ().enabled = false;
+		} else {
+			//Debug.Log ("BlueTeam -> Com");
+			blueFather.GetComponent<PlayerController> ().enabled = false;
+			blueFather.GetComponent<CompController> ().enabled = true;
+		}
+
+		if (MainMenu.dpRed.Equals ("Player")) {
+			//Debug.Log ("RedTeam -> Player");
+			redFather.GetComponent<PlayerController> ().enabled = true;
+			redFather.GetComponent<CompController> ().enabled = false;
+		} else {
+			//Debug.Log ("RedTeam -> Com");
+			redFather.GetComponent<PlayerController> ().enabled = false;
+			redFather.GetComponent<CompController> ().enabled = true;
+		}
 
 		if (GameController.board != null) {
 			GameObject aux;

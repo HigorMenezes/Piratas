@@ -34,28 +34,44 @@ public class MovementCalculate {
 				(board.RedTeam[player].x != board.BlueTeam[0].x || board.RedTeam[player].y + 1 != board.BlueTeam[0].y) &&
 				(board.RedTeam[player].x != board.BlueTeam[1].x || board.RedTeam[player].y + 1 != board.BlueTeam[1].y) &&
 				(board.RedTeam[player].x != board.RedTeam[2].x || board.RedTeam[player].y + 1 != board.RedTeam[2].y)){//Direita x | y + 1
-				movements.Add(new Movement(from, new Vector2(board.RedTeam[player].x, board.RedTeam[player].y + 1), Movement.Move.Move));
+				if (new Vector2 (board.RedTeam [player].x, board.RedTeam [player].y + 1).Equals (board.BlueTeam [2])) {
+					movements.Add (new Movement (from, new Vector2 (board.RedTeam [player].x, board.RedTeam [player].y + 1), Movement.Move.Win));
+				} else {
+					movements.Add (new Movement (from, new Vector2 (board.RedTeam [player].x, board.RedTeam [player].y + 1), Movement.Move.Move));
+				}
 			}
 			if (board.RedTeam[player].x < maxLine && board.RedTeam[player].y - 1 >= 0f &&
 				(board.RedTeam[player].x != board.RedTeam[outherPlayer].x || board.RedTeam[player].y - 1 != board.RedTeam[outherPlayer].y) &&
 				(board.RedTeam[player].x != board.BlueTeam[0].x || board.RedTeam[player].y - 1 != board.BlueTeam[0].y) &&
 				(board.RedTeam[player].x != board.BlueTeam[1].x || board.RedTeam[player].y - 1 != board.BlueTeam[1].y) &&
 				(board.RedTeam[player].x != board.RedTeam[2].x || board.RedTeam[player].y - 1 != board.RedTeam[2].y)){//Esquerda x | y - 1
-				movements.Add(new Movement(from, new Vector2(board.RedTeam[player].x, board.RedTeam[player].y - 1), Movement.Move.Move));
+				if (new Vector2 (board.RedTeam [player].x, board.RedTeam [player].y - 1).Equals (board.BlueTeam [2])) {
+					movements.Add (new Movement (from, new Vector2 (board.RedTeam [player].x, board.RedTeam [player].y - 1), Movement.Move.Win));
+				} else {
+					movements.Add (new Movement (from, new Vector2 (board.RedTeam [player].x, board.RedTeam [player].y - 1), Movement.Move.Move));
+				}
 			}
 			if (board.RedTeam[player].x + 1 < maxLine && board.RedTeam[player].y < maxColumn &&
 				(board.RedTeam[player].x + 1 != board.RedTeam[outherPlayer].x || board.RedTeam[player].y != board.RedTeam[outherPlayer].y) &&
 				(board.RedTeam[player].x + 1 != board.BlueTeam[0].x || board.RedTeam[player].y != board.BlueTeam[0].y) &&
 				(board.RedTeam[player].x + 1 != board.BlueTeam[1].x || board.RedTeam[player].y != board.BlueTeam[1].y) &&
 				(board.RedTeam[player].x + 1 != board.RedTeam[2].x || board.RedTeam[player].y != board.RedTeam[2].y)){//Baixo x + 1 | y
-				movements.Add(new Movement(from, new Vector2(board.RedTeam[player].x + 1, board.RedTeam[player].y), Movement.Move.Move));
+				if (new Vector2 (board.RedTeam [player].x + 1, board.RedTeam [player].y).Equals (board.BlueTeam [2])) {
+					movements.Add (new Movement (from, new Vector2 (board.RedTeam [player].x + 1, board.RedTeam [player].y), Movement.Move.Win));
+				} else {
+					movements.Add (new Movement (from, new Vector2 (board.RedTeam [player].x + 1, board.RedTeam [player].y), Movement.Move.Move));
+				}
 			}
 			if (board.RedTeam[player].x - 1 >= 0f && board.RedTeam[player].y < maxColumn &&
 				(board.RedTeam[player].x - 1 != board.RedTeam[outherPlayer].x || board.RedTeam[player].y != board.RedTeam[outherPlayer].y) &&
 				(board.RedTeam[player].x - 1 != board.BlueTeam[0].x || board.RedTeam[player].y != board.BlueTeam[0].y) &&
 				(board.RedTeam[player].x - 1 != board.BlueTeam[1].x || board.RedTeam[player].y != board.BlueTeam[1].y) &&
 				(board.RedTeam[player].x - 1 != board.RedTeam[2].x || board.RedTeam[player].y != board.RedTeam[2].y)){//Cima x - 1 | y
-				movements.Add(new Movement(from, new Vector2(board.RedTeam[player].x - 1, board.RedTeam[player].y), Movement.Move.Move));
+				if (new Vector2 (board.RedTeam [player].x - 1, board.RedTeam [player].y).Equals (board.BlueTeam [2])) {
+					movements.Add (new Movement (from, new Vector2 (board.RedTeam [player].x - 1, board.RedTeam [player].y), Movement.Move.Win));
+				} else {
+					movements.Add (new Movement (from, new Vector2 (board.RedTeam [player].x - 1, board.RedTeam [player].y), Movement.Move.Move));
+				}
 			}
 
 			if (board.RedTeam[player].x + 1 == board.BlueTeam[0].x && board.RedTeam[player].y + 1 == board.BlueTeam[0].y
@@ -82,28 +98,44 @@ public class MovementCalculate {
 				(board.BlueTeam[player].x != board.RedTeam[0].x || board.BlueTeam[player].y + 1 != board.RedTeam[0].y) &&
 				(board.BlueTeam[player].x != board.RedTeam[1].x || board.BlueTeam[player].y + 1 != board.RedTeam[1].y) &&
 				(board.BlueTeam[player].x != board.BlueTeam[2].x || board.BlueTeam[player].y + 1 != board.BlueTeam[2].y)){//Direita x | y + 1
-				movements.Add(new Movement(from, new Vector2(board.BlueTeam[player].x, board.BlueTeam[player].y + 1), Movement.Move.Move));
+				if (new Vector2 (board.BlueTeam [player].x, board.BlueTeam [player].y + 1).Equals (board.RedTeam [2])) {
+					movements.Add (new Movement (from, new Vector2 (board.BlueTeam [player].x, board.BlueTeam [player].y + 1), Movement.Move.Win));
+				} else {
+					movements.Add (new Movement (from, new Vector2 (board.BlueTeam [player].x, board.BlueTeam [player].y + 1), Movement.Move.Move));
+				}
 			}
 			if (board.BlueTeam[player].x < maxLine && board.BlueTeam[player].y - 1 >= 0f &&
 				(board.BlueTeam[player].x != board.BlueTeam[outherPlayer].x || board.BlueTeam[player].y - 1 != board.BlueTeam[outherPlayer].y) &&
 				(board.BlueTeam[player].x != board.RedTeam[0].x || board.BlueTeam[player].y - 1 != board.RedTeam[0].y) &&
 				(board.BlueTeam[player].x != board.RedTeam[1].x || board.BlueTeam[player].y - 1 != board.RedTeam[1].y) &&
 				(board.BlueTeam[player].x != board.BlueTeam[2].x || board.BlueTeam[player].y - 1 != board.BlueTeam[2].y)){//Esquerda x | y - 1
-					movements.Add(new Movement(from, new Vector2(board.BlueTeam[player].x, board.BlueTeam[player].y - 1), Movement.Move.Move));
+				if (new Vector2 (board.BlueTeam [player].x, board.BlueTeam [player].y - 1).Equals (board.RedTeam [2])) {
+					movements.Add (new Movement (from, new Vector2 (board.BlueTeam [player].x, board.BlueTeam [player].y - 1), Movement.Move.Win));
+				} else {
+					movements.Add (new Movement (from, new Vector2 (board.BlueTeam [player].x, board.BlueTeam [player].y - 1), Movement.Move.Move));
+				}
 			}
 			if (board.BlueTeam[player].x + 1 < maxLine && board.BlueTeam[player].y < maxColumn &&
 				(board.BlueTeam[player].x + 1 != board.BlueTeam[outherPlayer].x || board.BlueTeam[player].y != board.BlueTeam[outherPlayer].y) &&
 				(board.BlueTeam[player].x + 1 != board.RedTeam[0].x || board.BlueTeam[player].y != board.RedTeam[0].y) &&
 				(board.BlueTeam[player].x + 1 != board.RedTeam[1].x || board.BlueTeam[player].y != board.RedTeam[1].y) &&
 				(board.BlueTeam[player].x + 1 != board.BlueTeam[2].x || board.BlueTeam[player].y != board.BlueTeam[2].y)){//Baixo x + 1 | y
-				movements.Add(new Movement(from, new Vector2(board.BlueTeam[player].x + 1, board.BlueTeam[player].y), Movement.Move.Move));
+				if (new Vector2 (board.BlueTeam [player].x + 1, board.BlueTeam [player].y).Equals (board.RedTeam [2])) {
+					movements.Add (new Movement (from, new Vector2 (board.BlueTeam [player].x + 1, board.BlueTeam [player].y), Movement.Move.Win));
+				} else {
+					movements.Add (new Movement (from, new Vector2 (board.BlueTeam [player].x + 1, board.BlueTeam [player].y), Movement.Move.Move));
+				}
 			}
 			if (board.BlueTeam[player].x - 1 >= 0f && board.BlueTeam[player].y < maxColumn &&
 				(board.BlueTeam[player].x - 1 != board.BlueTeam[outherPlayer].x || board.BlueTeam[player].y != board.BlueTeam[outherPlayer].y) &&
 				(board.BlueTeam[player].x - 1 != board.RedTeam[0].x || board.BlueTeam[player].y != board.RedTeam[0].y) &&
 				(board.BlueTeam[player].x - 1 != board.RedTeam[1].x || board.BlueTeam[player].y != board.RedTeam[1].y) &&
 				(board.BlueTeam[player].x - 1 != board.BlueTeam[2].x || board.BlueTeam[player].y != board.BlueTeam[2].y)){//Cima x - 1 | y
-				movements.Add(new Movement(from, new Vector2(board.BlueTeam[player].x - 1, board.BlueTeam[player].y), Movement.Move.Move));
+				if (new Vector2 (board.BlueTeam [player].x - 1, board.BlueTeam [player].y).Equals (board.RedTeam [2])) {
+					movements.Add (new Movement (from, new Vector2 (board.BlueTeam [player].x - 1, board.BlueTeam [player].y), Movement.Move.Win));
+				} else {
+					movements.Add (new Movement (from, new Vector2 (board.BlueTeam [player].x - 1, board.BlueTeam [player].y), Movement.Move.Move));
+				}
 			}
 
 			if (board.BlueTeam[player].x + 1 == board.RedTeam[0].x && board.BlueTeam[player].y + 1 == board.RedTeam[0].y

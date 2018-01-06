@@ -25,15 +25,16 @@ public class SeaController : MonoBehaviour {
 
 	void Update () {
 
+
 		transform.position = new Vector3 (transform.position.x, 
-			transform.position.y + Random.Range(speedVert * 0.7f, speedVert * 1.3f)*heightVert*Time.fixedDeltaTime , 
+			transform.position.y + Random.Range (speedVert * 0.7f, speedVert * 1.3f) * heightVert * Time.fixedDeltaTime, 
 			transform.position.z);
 
 		if (transform.position.y > defaultHeight + heightVert)
 			speedVert = -Mathf.Abs(speedVert);
 
 		if (transform.position.y < defaultHeight - heightVert)
-			speedVert = Mathf.Abs(speedVert);
+			speedVert = Mathf.Abs(speedVert);;
 
 		transform.position = new Vector3 (transform.position.x + Random.Range(speedHorX * 0.7f, speedHorX * 1.3f)*heightHorX*Time.fixedDeltaTime, 
 			transform.position.y, 
