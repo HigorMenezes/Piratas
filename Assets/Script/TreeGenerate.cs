@@ -5,16 +5,17 @@ using UnityEngine;
 [System.Serializable]
 public class TreeGenerate {
 
-	private int maxDepth = 4;
+	public int maxDepth;
 	private Nodo raiz = new Nodo ();
 	private string tag;
 
-	public TreeGenerate (string tag)
+	public TreeGenerate (string tag, int maxDepth)
 	{
 		this.tag = tag;
 		this.raiz.Name = "raiz";
 		this.raiz.Board = GameController.board.clone ();
 		this.raiz.MaxMin = Nodo.MaxOrMin.Max;
+		this.maxDepth = maxDepth > 0 ? maxDepth : 4;
 		generate ();
 	}
 
@@ -55,12 +56,12 @@ public class TreeGenerate {
 								}
 
 								aux.Father = father;
-								aux.MaxMin = Nodo.MaxOrMin.Min;
+								aux.MaxMin = father.MaxMin.Equals(Nodo.MaxOrMin.Max) ? Nodo.MaxOrMin.Min : Nodo.MaxOrMin.Max;
 								aux.Movement = movement;
 
 								if (movement.To.Equals (aux.Board.BlueTeam [2])) {
 									aux.FUtility = 1000f;
-									//Debug.Log (1000);
+									Debug.Log (aux.FUtility);
 								}else
 								father.Children.Add (aux);
 								childrens.Add (aux);
@@ -88,12 +89,12 @@ public class TreeGenerate {
 								}
 
 								aux.Father = father;
-								aux.MaxMin = Nodo.MaxOrMin.Min;
+								aux.MaxMin = father.MaxMin.Equals(Nodo.MaxOrMin.Max) ? Nodo.MaxOrMin.Min : Nodo.MaxOrMin.Max;
 								aux.Movement = movement;
 
 								if (movement.To.Equals (aux.Board.BlueTeam [2])) {
 									aux.FUtility = 1000f;
-									//Debug.Log (1000);
+									Debug.Log (aux.FUtility);
 								}
 								father.Children.Add (aux);
 								childrens.Add (aux);
@@ -122,12 +123,12 @@ public class TreeGenerate {
 								}
 
 								aux.Father = father;
-								aux.MaxMin = Nodo.MaxOrMin.Max;
+								aux.MaxMin = father.MaxMin.Equals(Nodo.MaxOrMin.Max) ? Nodo.MaxOrMin.Min : Nodo.MaxOrMin.Max;
 								aux.Movement = movement;
 
 								if (movement.To.Equals (aux.Board.RedTeam [2])) {
 									aux.FUtility = -1000f;
-									//Debug.Log (-1000);
+									Debug.Log (aux.FUtility);
 								}
 								father.Children.Add (aux);
 								childrens.Add (aux);
@@ -155,12 +156,12 @@ public class TreeGenerate {
 								}
 
 								aux.Father = father;
-								aux.MaxMin = Nodo.MaxOrMin.Max;
+								aux.MaxMin = father.MaxMin.Equals(Nodo.MaxOrMin.Max) ? Nodo.MaxOrMin.Min : Nodo.MaxOrMin.Max;
 								aux.Movement = movement;
 
 								if (movement.To.Equals (aux.Board.BlueTeam [2])) {
 									aux.FUtility = -1000f;
-									//Debug.Log (-1000);
+									Debug.Log (aux.FUtility);
 								}
 								father.Children.Add (aux);
 								childrens.Add (aux);
@@ -192,12 +193,12 @@ public class TreeGenerate {
 								}
 
 								aux.Father = father;
-								aux.MaxMin = Nodo.MaxOrMin.Min;
+								aux.MaxMin = father.MaxMin.Equals(Nodo.MaxOrMin.Max) ? Nodo.MaxOrMin.Min : Nodo.MaxOrMin.Max;
 								aux.Movement = movement;
 
 								if (movement.To.Equals (aux.Board.RedTeam [2])) {
 									aux.FUtility = 1000f;
-									//Debug.Log (1000);
+									Debug.Log (aux.FUtility);
 								}
 								father.Children.Add (aux);
 								childrens.Add (aux);
@@ -225,12 +226,12 @@ public class TreeGenerate {
 								}
 
 								aux.Father = father;
-								aux.MaxMin = Nodo.MaxOrMin.Min;
+								aux.MaxMin = father.MaxMin.Equals(Nodo.MaxOrMin.Max) ? Nodo.MaxOrMin.Min : Nodo.MaxOrMin.Max;
 								aux.Movement = movement;
 
 								if (movement.To.Equals (aux.Board.RedTeam [2])) {
 									aux.FUtility = 1000f;
-									//Debug.Log (1000);
+									Debug.Log (aux.FUtility);
 								}
 								father.Children.Add (aux);
 								childrens.Add (aux);
@@ -259,12 +260,12 @@ public class TreeGenerate {
 								}
 
 								aux.Father = father;
-								aux.MaxMin = Nodo.MaxOrMin.Max;
+								aux.MaxMin = father.MaxMin.Equals(Nodo.MaxOrMin.Max) ? Nodo.MaxOrMin.Min : Nodo.MaxOrMin.Max;
 								aux.Movement = movement;
 
 								if (movement.To.Equals (aux.Board.BlueTeam [2])) {
 									aux.FUtility = -1000f;
-									//Debug.Log (-1000);
+									Debug.Log (aux.FUtility);
 								}
 								father.Children.Add (aux);
 								childrens.Add (aux);
@@ -292,12 +293,12 @@ public class TreeGenerate {
 								}
 
 								aux.Father = father;
-								aux.MaxMin = Nodo.MaxOrMin.Max;
+								aux.MaxMin = father.MaxMin.Equals(Nodo.MaxOrMin.Max) ? Nodo.MaxOrMin.Min : Nodo.MaxOrMin.Max;
 								aux.Movement = movement;
 
 								if (movement.To.Equals (aux.Board.BlueTeam [2])) {
 									aux.FUtility = -1000f;
-									//Debug.Log (-1000);
+									Debug.Log (aux.FUtility);
 								}
 								father.Children.Add (aux);
 								childrens.Add (aux);
@@ -331,8 +332,22 @@ public class TreeGenerate {
 			
 			foreach(Nodo father in fathers){
 
-				if (father.Children.Count == 0) {
+				if (father.Children.Count == 0 && float.IsNaN(father.FUtility)) {
+
+					/*
+					if (father.Father.MaxMin.Equals (Nodo.MaxOrMin.Max)) {
+						father.FUtility = father.Board.fUtility (this.tag);
+					} else {
+						if (this.tag.Equals("RedTeam")){
+							father.FUtility = -father.Board.fUtility ("BlueTeam");
+						}else {
+							father.FUtility = -father.Board.fUtility ("RedTeam");
+						}
+					}
+					*/
+
 					father.FUtility = father.Board.fUtility (this.tag);
+					//Debug.Log (father.FUtility);
 				}
 			
 				childrens.AddRange (father.Children);
@@ -343,15 +358,6 @@ public class TreeGenerate {
 		}
 
 		childrens.Clear ();
-	}
-
-	public int MaxDepth {
-		get {
-			return this.maxDepth;
-		}
-		set {
-			maxDepth = value;
-		}
 	}
 
 	public Nodo Raiz {

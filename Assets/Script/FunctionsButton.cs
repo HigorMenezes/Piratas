@@ -19,6 +19,7 @@ public class FunctionsButton : MonoBehaviour {
 	}
 
 	public void btnMenu(){
+		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex - 1);
 		Debug.Log ("Menu");
 	}
 

@@ -40,7 +40,7 @@ public class MiniMax {
 							//Debug.Log("4Setou o valor para " + fUtility + " o " + father.Name);
 						}
 					}
-					ancestral = father.Father;
+					/*ancestral = father.Father;
 
 					while (ancestral != null) {
 
@@ -61,7 +61,7 @@ public class MiniMax {
 						}
 						ancestral = ancestral.Father;
 
-					}
+					}*/
 
 				}
 

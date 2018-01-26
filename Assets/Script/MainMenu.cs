@@ -9,8 +9,8 @@ public class MainMenu : MonoBehaviour {
 	public Dropdown dropDownBlue;
 	public Dropdown dropDownRed;
 
-	public static string dpBlue = "Player";
-	public static string dpRed = "Player";
+	public static int dpBlue;
+	public static int dpRed;
 
 	void Start () {
 	}
@@ -20,9 +20,10 @@ public class MainMenu : MonoBehaviour {
 
 	public void Play (){
 
-		dpBlue = (dropDownBlue.value == 0) ? "Player" : "Com";
-		dpRed = (dropDownRed.value == 0) ? "Player" : "Com";
+		dpBlue = dropDownBlue.value;
+		dpRed = dropDownRed.value;
 
+		//TreeGenerate.maxDepth = dropDownBlue.value != 0 ? dropDownBlue.value : TreeGenerate.maxDepth;
 
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
 	}

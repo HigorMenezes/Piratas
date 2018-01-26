@@ -1,22 +1,27 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Board.cs">
     <Files>
-      <File FileName="Assets\Script\TreeGenerate.cs" Line="7" Column="2" />
-      <File FileName="Assets\Script\Board.cs" Line="6" Column="20" />
+      <File FileName="Assets\Script\TreeGenerate2.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\TreeGenerate.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Board.cs" Line="140" Column="51" />
+      <File FileName="Assets\Script\CompController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\MiniMax.cs" Line="20" Column="23" />
+      <File FileName="Assets\Script\MainMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\GameController.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\Nodo.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\GameController.cs" Line="42" Column="64" />
       <File FileName="Assets\Script\Movement.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\MovementCalculate.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\MakeMovement.cs" Line="92" Column="35" />
-      <File FileName="Assets\Script\CompController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\MiniMax.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\PlayerController.cs" Line="33" Column="22" />
+      <File FileName="Assets\Script\MakeMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\PlayerController.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\SeaController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\MenuWin.cs" Line="9" Column="20" />
-      <File FileName="Assets\Script\FunctionsButton.cs" Line="27" Column="69" />
-      <File FileName="Assets\Script\CameraInMenu.cs" Line="7" Column="27" />
-      <File FileName="Assets\Script\MainMenu.cs" Line="18" Column="18" />
+      <File FileName="Assets\Script\MenuWin.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\FunctionsButton.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\CameraInMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\CameraInMain.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Debug\DebugTree.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Debug\DebugMiniMax.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Debug\MiniMax2.cs" Line="18" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

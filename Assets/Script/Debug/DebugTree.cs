@@ -16,14 +16,14 @@ public class DebugTree {
 
 		fathers.Add (raiz);
 
-		for (int i = 0; i < 5; i ++) {
+		for (int i = 0; i < 6; i ++) {
 			aux = "";
-			aux += nivel + "  :";
+			//aux += nivel + "  :";
 			nivel++;
 			foreach(Nodo father in fathers){
 
 				if (father.Father != null) {
-					aux += "  {" + father.Father.Name + " -> " + father.Name + " " + father.Children.Count + " Value: " + father.FUtility +"}  ";
+					aux += "  {" + father.Movement.To + " Value: " + father.FUtility +"}  ";
 				} else {
 					aux += "  " + father.Name;
 				}

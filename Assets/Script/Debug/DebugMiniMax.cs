@@ -135,14 +135,16 @@ public class DebugMiniMax : MonoBehaviour {
 		nodo5.addChildren (nodo11);
 		nodo5.addChildren (nodo10);
 
-		nodo6.addChildren (nodo13);
-		nodo6.addChildren (nodo12);
+		//nodo6.addChildren (nodo13);
+		//nodo6.addChildren (nodo12);
+		nodo6.FUtility = -20;
 
 		nodo7.addChildren (nodo15);
 		nodo7.addChildren (nodo14);
 
-		nodo8.addChildren (nodo17);
-		nodo8.addChildren (nodo16);
+		//nodo8.addChildren (nodo17);
+		//nodo8.addChildren (nodo16);
+		nodo8.FUtility = 30.0f;
 
 		nodo9.addChildren (nodo19);
 		nodo9.addChildren (nodo18);
@@ -165,12 +167,10 @@ public class DebugMiniMax : MonoBehaviour {
 		nodo15.addChildren (nodo31);
 		nodo15.addChildren (nodo30);
 
-
-
-		/*float f = MiniMax.seach (nodo1);
-		Debug.Log (f);*/
-
 		DebugTree.imprime (nodo1);
+
+		float f = MiniMax.seach (nodo1);
+		Debug.Log (f);
 
 	}
 }

@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class MovementCalculate {
 
-	public static List<Movement> calculate(Board board, Vector2 from, string tag){
+	public static List<Movement> calculate(Board b, Vector2 from, string tag){
 		List<Movement> movements = new List<Movement> ();
-		//Board board = GameController.board.clone();
+		Board board = b.clone();
 
 		//string enemy = ((tag == "RedTeam") ? "BlueTeam" : tag);
 		int player = -1;

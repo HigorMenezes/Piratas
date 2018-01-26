@@ -76,8 +76,8 @@ public class Board{
 		int quantidadeBlue = 0;
 		int quantidadeRed = 0;
 
-		float distBlueRed = 0;
-		float distRedBlue = 0;
+		float distBlueRed = 0.0001f;
+		float distRedBlue = 0.0001f;
 
 		quantidadeBlue += blueTeam [0].x != -10 ? 1 : 0;
 		quantidadeBlue += blueTeam [1].x != -10 ? 1 : 0;
@@ -85,28 +85,67 @@ public class Board{
 		quantidadeRed += redTeam [0].x != -10 ? 1 : 0;
 		quantidadeRed += redTeam [1].x != -10 ? 1 : 0;
 
-		if (blueTeam[0].x != -10f){
+
+		if (blueTeam [0].x != -10.0f && blueTeam [1].x != -10.0f) {
+			distBlueRed += (Mathf.Abs (blueTeam [0].x - redTeam [2].x) +
+			Mathf.Abs (blueTeam [0].y - redTeam [2].y) +
+			Mathf.Abs (blueTeam [1].x - redTeam [2].x) +
+			Mathf.Abs (blueTeam [1].y - redTeam [2].y)) / 2;
+		} else if (blueTeam [0].x != -10f) {
+			distBlueRed += Mathf.Abs (blueTeam [0].x - redTeam [2].x) +
+			Mathf.Abs (blueTeam [0].y - redTeam [2].y);
+		} else if (blueTeam [1].x != -10f) {
+			distBlueRed += Mathf.Abs (blueTeam [1].x - redTeam [2].x) +
+			Mathf.Abs (blueTeam [1].y - redTeam [2].y);
+		} else {
+			distBlueRed = 20;
+		}
+
+		if (redTeam [0].x != -10.0f && redTeam [1].x != -10.0f) {
+			distRedBlue += (Mathf.Abs (redTeam [0].x - blueTeam [2].x) +
+				Mathf.Abs (redTeam [0].y - blueTeam [2].y) +
+				Mathf.Abs (redTeam [1].x - blueTeam [2].x) +
+				Mathf.Abs (redTeam [1].y - blueTeam [2].y)) / 2;
+		} else if (redTeam [0].x != -10f) {
+			distRedBlue += Mathf.Abs (redTeam [0].x - blueTeam [2].x) +
+				Mathf.Abs (redTeam [0].y - blueTeam [2].y);
+		} else if (redTeam [1].x != -10f) {
+			distRedBlue += Mathf.Abs (redTeam [1].x - blueTeam [2].x) +
+				Mathf.Abs (redTeam [1].y - blueTeam [2].y);
+		} else {
+			distRedBlue = 20;
+		}
+
+		/*if (blueTeam [0].x != -10f) {
 			distBlueRed += Mathf.Abs (blueTeam [0].x - redTeam [2].x) +
 						   Mathf.Abs (blueTeam [0].y - redTeam [2].y);
+		} else {
+			distBlueRed -= 175.0f;
 		}
 		if (blueTeam [1].x != -10f) {
 			distBlueRed += Mathf.Abs (blueTeam[1].x - redTeam[2].x) +
 						   Mathf.Abs (blueTeam[1].y - redTeam[2].y);
+		} else {
+			distBlueRed -= 175.0f;
 		}
 
-		if (redTeam[0].x != -10f){
+		if (redTeam [0].x != -10f) {
 			distRedBlue += Mathf.Abs (redTeam [0].x - blueTeam [2].x) +
-						  Mathf.Abs (redTeam [0].y - blueTeam [2].y);
+						   Mathf.Abs (redTeam [0].y - blueTeam [2].y);
+		} else {
+			distRedBlue -= 175.0f;
 		}
 		if (redTeam [1].x != -10f) {
 			distRedBlue += Mathf.Abs (redTeam[1].x - blueTeam[2].x) +
 						   Mathf.Abs (redTeam[1].y - blueTeam[2].y);
-		}
+		} else {
+			distRedBlue -= 175.0f;
+		}*/
 
 		if (tag.Equals ("BlueTeam")) {
-			return 500 * (quantidadeBlue - quantidadeRed) - 25 * distBlueRed;
+			return (quantidadeBlue - 2)*450 + (2 - quantidadeRed)*400 + 150 * 1/distBlueRed - 150 * 1/distRedBlue;
 		} else {
-			return 500 * (quantidadeRed - quantidadeBlue) - 25 * distRedBlue;
+			return (quantidadeRed - 2)*450 + (2 - quantidadeBlue)*400 + 150 * 1/distRedBlue - 150 * 1/distBlueRed;
 		}
 
 	}

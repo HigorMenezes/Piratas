@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour {
 		if (Random.Range (0, 2) == 0) {
 			turn = Turn.RedTeam;
 		} else {
-			turn = Turn.BlueTeam;
+			turn = Turn.RedTeam;
 		}
 		lastTurn = turn;
 		prepareBoard ();
@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour {
 		GameObject redFather = GameObject.FindGameObjectWithTag("RedTeam");
 		GameObject blueFather = GameObject.FindGameObjectWithTag("BlueTeam");
 
-		if (MainMenu.dpBlue.Equals ("Player")) {
+		if (MainMenu.dpBlue == 0) {
 			//Debug.Log ("BlueTeam -> Player");
 			blueFather.GetComponent<PlayerController> ().enabled = true;
 			blueFather.GetComponent<CompController> ().enabled = false;
@@ -45,9 +45,11 @@ public class GameController : MonoBehaviour {
 			//Debug.Log ("BlueTeam -> Com");
 			blueFather.GetComponent<PlayerController> ().enabled = false;
 			blueFather.GetComponent<CompController> ().enabled = true;
+			blueFather.GetComponent<CompController> ().MaxDepth = MainMenu.dpBlue;
+
 		}
 
-		if (MainMenu.dpRed.Equals ("Player")) {
+		if (MainMenu.dpRed == 0) {
 			//Debug.Log ("RedTeam -> Player");
 			redFather.GetComponent<PlayerController> ().enabled = true;
 			redFather.GetComponent<CompController> ().enabled = false;
@@ -55,6 +57,7 @@ public class GameController : MonoBehaviour {
 			//Debug.Log ("RedTeam -> Com");
 			redFather.GetComponent<PlayerController> ().enabled = false;
 			redFather.GetComponent<CompController> ().enabled = true;
+			redFather.GetComponent<CompController> ().MaxDepth = MainMenu.dpRed;
 		}
 
 		if (GameController.board != null) {
